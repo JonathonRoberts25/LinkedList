@@ -265,23 +265,7 @@ public class List<DataType extends Comparable<DataType>> {
     return sList;
   }
 
-  /**
-   * Returns an array containing all of the elements in this list in proper
-   * sequence (from first to last element). Elements are converted to strings by
-   * object.toString().
-   *
-   * @return an array containing all of the elements in this list in proper
-   *         sequence
-   */
-  public String[] toStringArray() {
-    String[] output = new String[this.mySize];
-    ListNode n = this.myHead;
-    for (int i = 0; i < this.mySize; i++) {
-      n = n.myNext;
-      output[i] = n.myData.toString();
-    }
-    return output;
-  }
+
 
   /**
    * Appends all of the elements in the other list to the end of this list, in the
@@ -321,79 +305,6 @@ public class List<DataType extends Comparable<DataType>> {
     }
   }
 
-  /**
-   * Splits this list in two.
-   *
-   * Afterwards, this list contains only elements from the first half, and the
-   * returned list contains only elements from the second half.
-   *
-   * If this list has an odd number of elements, afterwards, it should contain one
-   * more element than the list that is returned. If this list has one element, it
-   * is unmodified, and an empty list is returned.
-   *
-   * @return a new list that contains the second half of the elements in the
-   *         original list
-   */
-  /**I am lost with this problem
-   *
-   * @return
-   */
-  public List<DataType> split() {
-    /*List<DataType> secPart=new List<DataType>();
-		ListNode n=this.myHead;
-		if(this.mySize>1){
-			if(this.mySize%2==0){
-				for(int i=0;i<=this.mySize/2;i++){
-					n=n.myNext;
-				}
-				for(int i=this.mySize/2+1;i<this.mySize/2;i++){
-					DataType d=n.myData;
-				}
-		}else{
-			return secPart;
-		}
-		return secPart;     I could not figure out this method
-		}*/
-    return null; // Added, to make the autograder work
-  }
-
-  /**
-   * Merges this list with the other list.
-   *
-   * Both this list and other list should already be in sorted order.
-   *
-   * This method will modify this list and the other list. When completed, other
-   * should be empty and this list should contain all elements in sorted order.
-   *
-   * @param other - the list to be merged with this list
-   */
-  public void merge(List<DataType> other) {
-    List mList = new List<DataType>();
-    while (!this.isEmpty() && !other.isEmpty()) {
-      if (this.myHead.myData.compareTo(other.myHead.myData) < 0) {
-        mList.add(this.myHead.myData);
-        this.removeFirst();
-      } else {
-        mList.add(other.myHead.myData);
-        other.removeFirst();
-      }
-    }
-    if (this.isEmpty()) {
-      mList.append(other);
-    } else {
-      mList.append(this);
-    }
-    this.mySize = mList.mySize;
-    this.myHead = mList.myHead;
-  }
-
-  /**
-   * Sorts this list using merge sort.
-   */
-  public void mergeSort() {
-    // TODO: implement mergeSort
-    // Use split() and merge(List other).
-  }
 
   public static void main(String[] args) {
     System.out.println(
